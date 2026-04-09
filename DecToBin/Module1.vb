@@ -1,10 +1,11 @@
 ﻿Module Module1
 
     Sub Main()
+        Const MAX_INT = UInteger.MaxValue
         Dim uNumber As UInteger
         Console.WriteLine("Input an unsigned integer number")
         Dim bIsRightNumber = (UInteger.TryParse(Console.ReadLine(), uNumber)) AndAlso
-                     (uNumber <= UInteger.MaxValue)
+                     (uNumber <= MAX_INT)
         If (Not bIsRightNumber) Then
             Console.WriteLine("Invalid number format or number too big")
             Console.Read()
@@ -14,14 +15,14 @@
         Dim uTempVal = uNumber
         Do While (uTempVal > 0)
             strBinNum = CInt(uTempVal Mod 2).ToString() + strBinNum
-            uTempVal /= 2
+            uTempVal \= 2
         Loop
         If (strBinNum.Length = 0) Then
             strBinNum = "0"
         End If
         Console.WriteLine _
         (
-            "The binary equavalent of the decimal number {0} is: {1}",
+            "The binary equivalent of the decimal number {0} is: {1}",
             uNumber, strBinNum
         )
         Console.Read()

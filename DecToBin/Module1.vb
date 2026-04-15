@@ -1,3 +1,38 @@
+<<<<<<< HEAD
+﻿Module Module1
+
+    Sub Main()
+        Const MAX_INT = UInteger.MaxValue
+        Dim uNumber As UInteger
+        Console.WriteLine("Input an unsigned integer number")
+        Dim bIsRightNumber = (UInteger.TryParse(Console.ReadLine(), uNumber)) AndAlso
+                     (uNumber <= MAX_INT)
+        If (Not bIsRightNumber) Then
+            Console.WriteLine("Invalid number format or number too big")
+            Console.Read()
+            Return
+        End If
+        Dim strBinNum = ""
+        Dim uTempVal = uNumber
+        Do While (uTempVal > 0)
+            Dim nBinDigit = uTempVal Mod 2
+            Dim chBinDigit = Chr(nBinDigit + Asc("0"c))
+            strBinNum = chBinDigit + strBinNum
+            uTempVal \= 2
+        Loop
+        If (strBinNum.Length = 0) Then
+            strBinNum = "0"
+        End If
+        Console.WriteLine _
+        (
+            "The binary equivalent of the decimal number {0} is: {1}",
+            uNumber, strBinNum
+        )
+        Console.Read()
+    End Sub
+
+End Module
+=======
 ﻿Module Module1
 
     Sub Main()
@@ -29,3 +64,4 @@
     End Sub
 
 End Module
+>>>>>>> b8a04b6ea64f4c66787741958c787bd094826b9f
